@@ -12,18 +12,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Root />,
         children: [
-            { path: "query-search", element: <QuerySearch /> },
-            // {
-            //     path: "org-repos/:org",
-            //     element: <RouterOrgRepos />,
-            //     loader: orgLoader
-            // },
-            // {
-            //     path: "router-post",
-            //     element: <RouterPost />,
-            //     action: postAction
-            // },
-            // { index: true, element: <Navigate to="/fetch-search" replace /> }
+            { path: "query-search", element: <QuerySearch /> }
         ]
     }
 ])

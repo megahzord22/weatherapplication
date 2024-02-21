@@ -5,7 +5,7 @@ export default function Root() {
         <div className="page-container">
             <nav>
                 <ul>
-                    <li><NavLink to="/home">Search the weather for any city</NavLink></li>
+                    <li><NavLink to="/query-search">Search the weather for any city</NavLink></li>
                 </ul>
             </nav>
             <main><Outlet /></main>

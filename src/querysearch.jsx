@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 
-import ErrorContainer from '../components/ErrorContainer'
-import Spinner from '../components/Spinner'
+import ErrorContainer from './components/ErrorContainer'
+import Spinner from './components/Spinner'
+import Weather from './components/Weather'
 
 export default function Search() {
     const [ searchParams, setSearchParams ] = useSearchParams()
@@ -27,9 +28,6 @@ export default function Search() {
         }
     })
 
-    console.log("== isLoading:", isLoading)
-    console.log("== fetchStatus:", fetchStatus)
-
     return (
         <div>
             <form onSubmit={e => {
@@ -42,13 +40,11 @@ export default function Search() {
             <h2>The city you are looking up: {query}</h2>
             {error && <ErrorContainer>Error: {error.message}</ErrorContainer>}
             {isLoading && <Spinner />}
-            <ul>
+            <div className="weather-cards">
                 {data?.list && data.list.map(weather => (
-                    <li key={weather.id}>
-                        {weather.dt_txt}: {weather.weather[0].description}
-                    </li>
+                    <Weather key={weather.dt} weather={weather} />
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }
