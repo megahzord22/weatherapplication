@@ -15,13 +15,15 @@ export default function Search() {
         queryKey: ["searchWeather", query],
         queryFn: async () => {
             try {
+                console.log("making an api call", query)
+                if (query) {
                 const res = await fetch(
                     `https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=7d39025bbcc1ee38a3ed87d12f12326d`
                 )
                 if (!res.ok) {
                     throw new Error('Network response was not ok')
                 }
-                return res.json()
+                return res.json()}
             } catch (error) {
                 throw new Error(`Error fetching weather data: ${error.message}`)
             }
