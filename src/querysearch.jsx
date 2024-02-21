@@ -40,7 +40,7 @@ export default function Search() {
                 <button type="submit">Search</button>
             </form>
             <h2>The city you are looking up: {query}</h2>
-            {error && <ErrorContainer>Error: {error.message}</ErrorContainer>}
+            {error && query && <ErrorContainer>Error: {error.message}</ErrorContainer>}
             {isLoading && <Spinner />}
             <div className="weather-cards">
                 {data?.list && data.list.map(weather => (
