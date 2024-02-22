@@ -15,15 +15,15 @@ export default function Search() {
         queryKey: ["searchWeather", query],
         queryFn: async () => {
             try {
-                console.log("making an api call", query)
-                if (query) {
+                if (query == null) {
+                    return null }
                 const res = await fetch(
                     `https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=7d39025bbcc1ee38a3ed87d12f12326d`
                 )
                 if (!res.ok) {
                     throw new Error('Network response was not ok')
                 }
-                return res.json()}
+                return res.json()
             } catch (error) {
                 throw new Error(`Error fetching weather data: ${error.message}`)
             }
@@ -39,7 +39,7 @@ export default function Search() {
                 <input value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
                 <button type="submit">Search</button>
             </form>
-            <h2>The city you are looking up: {query}</h2>
+            <h2>{query}</h2>
             {error && query && <ErrorContainer>Error: {error.message}</ErrorContainer>}
             {isLoading && <Spinner />}
             <div className="weather-cards">
