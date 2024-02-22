@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Root from './Root'
 import QuerySearch from './querysearch'
+import { css } from '@emotion/react'
 
 const queryClient = new QueryClient()
 
