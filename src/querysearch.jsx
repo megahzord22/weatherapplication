@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import ErrorContainer from './components/ErrorContainer'
 import Spinner from './components/Spinner'
 import Weather from './components/Weather'
+import { css } from '@emotion/react'
 
 export default function Search() {
     const [ searchParams, setSearchParams ] = useSearchParams()
