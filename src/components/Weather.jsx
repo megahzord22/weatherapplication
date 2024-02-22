@@ -36,7 +36,7 @@ function formatDateTime(dateTimeString) {
 
 function Weather({ weather }) {
 const styles = css`
-  background-color: green;
+  background-color: gray;
   color: mediumvioletred;
   margin: 0;
   padding: 10px;
@@ -48,7 +48,6 @@ const tempFahrenheit = (tempCelsius * 9/5) + 32;
             <h3>{formatDateTime(weather.dt_txt)}</h3>
             <p>{Math.round(tempFahrenheit)}°F</p>
             <p>{weather.weather[0].description}</p>
-            {/* Add more weather information here if needed */}
         </div>
     );
 }
