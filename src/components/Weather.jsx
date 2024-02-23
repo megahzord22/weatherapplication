@@ -34,6 +34,14 @@ function formatDateTime(dateTimeString) {
     return `${monthMap[month]} ${parseInt(day, 10)}, ${formattedHour}:${minute} ${ampm}`;
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+
 function Weather({ weather }) {
 const styles = css`
     background-color: #3498db;
@@ -44,15 +52,25 @@ const styles = css`
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
-    width: 100px;
+    width: 250px;
+    text-align: center;
+    font-size: 20px;
     `
-const tempCelsius = weather.main.temp - 273.15;
-const tempFahrenheit = (tempCelsius * 9/5) + 32;
+const mainTempStyles = css`
+    font-size: 40px;
+`
+const tempCelsius = weather.main.temp - 273.15
+const tempFahrenheit = celsiusToFahrenheit(tempCelsius)
+const minTempCelsius = weather.main.temp_min - 273.15
+const minTempFahrenheit = celsiusToFahrenheit(minTempCelsius)
+const maxTempCelsius = weather.main.temp_max - 273.15
+const maxTempFahrenheit = celsiusToFahrenheit(maxTempCelsius)
     return (
         <div css={styles}>
             <h3>{formatDateTime(weather.dt_txt)}</h3>
-            <p>{Math.round(tempFahrenheit)}°F</p>
-            <p>{weather.weather[0].description}</p>
+            <p css={mainTempStyles}><strong>{Math.round(tempFahrenheit)}°F</strong></p>
+            <p><strong>Min: </strong>{Math.round(minTempFahrenheit)}°F <strong>Max: </strong>{Math.round(maxTempFahrenheit)}°F</p>
+            <p><strong>Conditions: </strong> {capitalizeFirstLetter(weather.weather[0].description)}.</p>
         </div>
     );
 }

@@ -8,6 +8,11 @@ import Weather from './components/Weather'
 import { css } from '@emotion/react'
 
 export default function Search() {
+    const cardsStyles = css`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+`
     const [ searchParams, setSearchParams ] = useSearchParams()
     const query = searchParams.get("q")
     const [ inputQuery, setInputQuery ] = useState(query || "")
@@ -30,7 +35,6 @@ export default function Search() {
             }
         }
     })
-    console.log(data?.list)
     return (
         <div>
             <form onSubmit={e => {
@@ -43,7 +47,7 @@ export default function Search() {
             <h2>{query}</h2>
             {error && query && <ErrorContainer>Error: {error.message}</ErrorContainer>}
             {isLoading && <Spinner />}
-            <div className="weather-cards">
+            <div css={cardsStyles}>
                 {data?.list && data.list.map(weather => (
                     <div key={weather.dt}>{weather.id}<Weather weather={weather} /></div>
                 ))}
