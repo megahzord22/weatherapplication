@@ -65,12 +65,15 @@ const minTempCelsius = weather.main.temp_min - 273.15
 const minTempFahrenheit = celsiusToFahrenheit(minTempCelsius)
 const maxTempCelsius = weather.main.temp_max - 273.15
 const maxTempFahrenheit = celsiusToFahrenheit(maxTempCelsius)
+const iconUrl = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
     return (
         <div css={styles}>
             <h3>{formatDateTime(weather.dt_txt)}</h3>
+            <img src={iconUrl} alt={weather.weather[0].description} />
             <p css={mainTempStyles}><strong>{Math.round(tempFahrenheit)}°F</strong></p>
             <p><strong>Min: </strong>{Math.round(minTempFahrenheit)}°F <strong>Max: </strong>{Math.round(maxTempFahrenheit)}°F</p>
             <p><strong>Conditions: </strong> {capitalizeFirstLetter(weather.weather[0].description)}.</p>
+            <p><strong>Chance of Rain: </strong>{weather.pop * 100}%</p>
         </div>
     );
 }
