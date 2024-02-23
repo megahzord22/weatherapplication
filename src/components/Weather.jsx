@@ -36,15 +36,16 @@ function formatDateTime(dateTimeString) {
 
 function Weather({ weather }) {
 const styles = css`
-  background-color: gray;
-  color: white;
-  padding: 10px;
-  margin: 10px;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  width: 100px;
-`
+    background-color: #3498db;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100px;
+    `
 const tempCelsius = weather.main.temp - 273.15;
 const tempFahrenheit = (tempCelsius * 9/5) + 32;
     return (
