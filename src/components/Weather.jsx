@@ -17,29 +17,29 @@ const monthMap = {
 };
 
 function formatDateTime(dateTimeString) {
-    const [date, time] = dateTimeString.split(' ');
-    const [year, month, day] = date.split('-');
-    const [hour, minute] = time.split(':');
+    const [date, time] = dateTimeString.split(' ')
+    const [year, month, day] = date.split('-')
+    const [hour, minute] = time.split(':')
     
-    // Convert hour to 12-hour format and determine AM/PM
-    let formattedHour = parseInt(hour, 10);
+
+    let formattedHour = parseInt(hour, 10)
     let ampm = 'AM';
     if (formattedHour > 12) {
-        formattedHour -= 12;
+        formattedHour -= 12
         ampm = 'PM';
     } else if (formattedHour === 0) {
-        formattedHour = 12;
+        formattedHour = 12
     }
 
-    return `${monthMap[month]} ${parseInt(day, 10)}, ${formattedHour}:${minute} ${ampm}`;
+    return `${monthMap[month]} ${parseInt(day, 10)}, ${formattedHour}:${minute} ${ampm}`
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 function celsiusToFahrenheit(celsius) {
-    return (celsius * 9/5) + 32;
+    return (celsius * 9/5) + 32
 }
 
 function Weather({ weather }) {
@@ -65,7 +65,7 @@ const minTempCelsius = weather.main.temp_min - 273.15
 const minTempFahrenheit = celsiusToFahrenheit(minTempCelsius)
 const maxTempCelsius = weather.main.temp_max - 273.15
 const maxTempFahrenheit = celsiusToFahrenheit(maxTempCelsius)
-const iconUrl = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+const iconUrl = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`
     return (
         <div css={styles}>
             <h3>{formatDateTime(weather.dt_txt)}</h3>
