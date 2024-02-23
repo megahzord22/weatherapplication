@@ -30,7 +30,7 @@ export default function Search() {
             }
         }
     })
-
+    console.log(data?.list)
     return (
         <div>
             <form onSubmit={e => {
@@ -45,7 +45,7 @@ export default function Search() {
             {isLoading && <Spinner />}
             <div className="weather-cards">
                 {data?.list && data.list.map(weather => (
-                    <div><Weather key={weather.dt} weather={weather} /></div>
+                    <div key={weather.dt}>{weather.id}<Weather weather={weather} /></div>
                 ))}
             </div>
         </div>
