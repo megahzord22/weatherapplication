@@ -52,9 +52,10 @@ const styles = css`
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
-    width: 250px;
+    width: 90%;
     text-align: center;
     font-size: 20px;
+    max-width: 300px;
     `
 const mainTempStyles = css`
     font-size: 40px;
@@ -73,7 +74,7 @@ const iconUrl = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`
             <p css={mainTempStyles}><strong>{Math.round(tempFahrenheit)}°F</strong></p>
             <p><strong>Min: </strong>{Math.round(minTempFahrenheit)}°F <strong>Max: </strong>{Math.round(maxTempFahrenheit)}°F</p>
             <p><strong>Conditions: </strong> {capitalizeFirstLetter(weather.weather[0].description)}.</p>
-            <p><strong>Chance of Rain: </strong>{weather.pop * 100}%</p>
+            <p><strong>Chance of Rain: </strong>{Math.round(weather.pop * 100)}%</p>
         </div>
     );
 }

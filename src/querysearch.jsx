@@ -35,7 +35,7 @@ const inputStyles = css`
     font-size: 16px;
     width: 200px;
     margin-right: 10px;
-    color: 555;
+    color: 999;
 `
     const [ searchParams, setSearchParams ] = useSearchParams()
     const query = searchParams.get("q")
