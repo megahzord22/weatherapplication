@@ -11,10 +11,7 @@ const queryClient = new QueryClient()
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root />,
-        children: [
-            { path: "query-search", element: <QuerySearch /> }
-        ]
+        element: <Root />
     }
 ])
 
