@@ -66,7 +66,7 @@ const inputStyles = css`
                 setSearchParams({ q: inputQuery })
             }}>
                 <input css={inputStyles} value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
-                <button css={buttonStyles}type="submit">Search</button>
+                <button css={buttonStyles}type="submit"><strong>Search City</strong></button>
             </form>
             <h2>{query}</h2>
             {error && query && <ErrorContainer>Error: {error.message}</ErrorContainer>}
