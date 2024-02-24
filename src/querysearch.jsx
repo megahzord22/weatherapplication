@@ -7,11 +7,35 @@ import Spinner from './components/Spinner'
 import Weather from './components/Weather'
 import { css } from '@emotion/react'
 
+
 export default function Search() {
-    const cardsStyles = css`
+const formStyles = css`
+    display: flex;
+    margin-bottom: 20px;
+    `
+const cardsStyles = css`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+`
+const buttonStyles = css`
+    background-color: #FFD700; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+`
+const inputStyles = css`
+    border: 2px solid #FFD700; 
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 10px;
+    color: 555;
 `
     const [ searchParams, setSearchParams ] = useSearchParams()
     const query = searchParams.get("q")
@@ -37,12 +61,12 @@ export default function Search() {
     })
     return (
         <div>
-            <form onSubmit={e => {
+            <form css={formStyles} onSubmit={e => {
                 e.preventDefault()
                 setSearchParams({ q: inputQuery })
             }}>
-                <input value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
-                <button type="submit">Search</button>
+                <input css={inputStyles} value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
+                <button css={buttonStyles}type="submit">Search</button>
             </form>
             <h2>{query}</h2>
             {error && query && <ErrorContainer>Error: {error.message}</ErrorContainer>}
