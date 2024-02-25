@@ -12,6 +12,10 @@ export default function Search() {
 const formStyles = css`
     display: flex;
     margin-bottom: 20px;
+    flex-direction: column; 
+    @media (min-width: 600px) {
+        flex-direction: row; 
+    }
     `
 const cardsStyles = css`
     display: flex;
@@ -27,6 +31,12 @@ const buttonStyles = css`
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    @media (max-width: 600px) { 
+    width: 100%; 
+    margin-top: 10px;
+    font-size: 20px;
+}
+
 `
 const inputStyles = css`
     border: 2px solid #FFD700; 
@@ -36,6 +46,10 @@ const inputStyles = css`
     width: 200px;
     margin-right: 10px;
     color: 999;
+    @media (max-width: 600px) { 
+        width: 100%; 
+        font-size: 20px;
+    }
 `
     const [ searchParams, setSearchParams ] = useSearchParams()
     const query = searchParams.get("q")
