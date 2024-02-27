@@ -82,7 +82,7 @@ const inputStyles = css`
                 e.preventDefault()
                 setSearchParams({ q: inputQuery })
             }}>
-                <input css={inputStyles} value={inputQuery} onChange={e => setInputQuery(e.target.value)} />
+                <input css={inputStyles} value={inputQuery} placeholder="Enter any city" onChange={e => setInputQuery(e.target.value)} />
                 <button css={buttonStyles}type="submit"><strong>Search City</strong></button>
             </form>
             <h2>{query}</h2>
