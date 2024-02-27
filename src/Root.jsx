@@ -14,7 +14,14 @@ export default function Root() {
         margin-bottom: 20px;
         text-align: center; 
         padding: 20px; 
-        background-color: rgba(255, 255, 255, 0.7); 
+        background-color: rgba(255, 255, 255, 0.7);
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        max-height: 20vh; 
+        width: 100%; 
+        overflow: hidden; 
+        margin-bottom: 20px; 
 
         .brand-symbol {
             font-size: 36px; 
@@ -27,6 +34,7 @@ export default function Root() {
             flex-direction: column; 
             align-items: center; 
             padding: 20px 0; 
+            max-height: none; 
         }
     `
     const logoStyles = css`

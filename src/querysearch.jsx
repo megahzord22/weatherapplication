@@ -36,6 +36,9 @@ const buttonStyles = css`
     margin-top: 10px;
     font-size: 20px;
 }
+    &:hover { 
+        transform: scale(1.1); 
+    }
 
 `
 const inputStyles = css`
