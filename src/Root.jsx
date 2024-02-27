@@ -37,15 +37,36 @@ export default function Root() {
             width: 100px; /* Increase width for smaller screens */
         }
 `
+const footerStyles = css`
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+const mainStyles = css`
+    flex: 1; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    padding: 0 20px; 
+`
+const containerStyles = css`
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+`
     return (
-        <div className="page-container">
+        <div css={containerStyles}>
             <header css={headerStyles}>
             <img src={logo} alt="Logo" css={logoStyles} /> 
                 Sunny Side Up</header>
-            <main>
+            <main css={mainStyles}>
                 <Search /> 
             </main>
-            <footer>Copyright 2024 Megan Grant</footer>
+            <footer css={footerStyles}>Copyright 2024 Megan Grant</footer>
         </div>
     )
 }
