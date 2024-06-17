@@ -65,7 +65,7 @@ const inputStyles = css`
                 if (query == null) {
                     return null }
                 const res = await fetch(
-                    `https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=7d39025bbcc1ee38a3ed87d12f12326d`
+                    `https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=addyourownappid`
                 )
                 if (!res.ok) {
                     throw new Error('Network response was not ok')
